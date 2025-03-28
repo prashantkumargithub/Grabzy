@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grabzy || Buy & Sell online</title>
+    <!-- css  -->
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <!-- ICON CSS  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <!-- Link Swiper's CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+</head>
+
+<body class="bg-slate-200 ">
+
+    <!-- top nav bar stat  -->
+    <nav
+        class="bg-white w-full h-16 sticky top-0 z-50 flex  justify-evenly items-center py-6  overflow-hidden md:overflow-visible shadow-lg">
+        <!-- logo replaced with text -->
+        <h1 class="text-xl md:text-2xl font-bold bg-gradient-to-r from-red-600 to-yellow-500 ">Grabzy</h1>
+
+        <!-- search bar with removed outline -->
+        <div class=" flex bg-[#e6e6e6]  text-xl rounded-lg ">
+            <input type="text" name="" id="" placeholder="Search for Products"
+                class="bg-[#e6e6e6] lg:w-[550px] w-[200px]  h-10 rounded-lg pl-3  text-lg focus:outline-none  border-none">
+            <button>
+                <div class="p-2 text-slate-400"><i class="fa-solid fa-magnifying-glass fa-lg "></i></div>
+            </button>
+        </div>
+        <!-- account  -->
+        <div class="relative md:inline-block text-left hidden md:visible " id="dropdown-container">
+            <button type="button"
+                class=" gap-1 inline-flex justify-center w-full rounded-md p-2 bg-white text-base font-medium text-gray-700 focus:outline-none  hover:bg-blue-500 hover:text-white"
+                id="options-menu" aria-expanded="false" aria-haspopup="true">
+                <i class="fa-regular fa-circle-user text-2xl"></i>
+                Account
+                <!-- Heroicon name: solid/chevron-down -->
+                <svg class="-mr-1 ml-2 h-5 w-5 rotate-180" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
+                    fill="currentColor" aria-hidden="true">
+                    <path fill-rule="evenodd"
+                        d="M10 3a1 1 0 01.707.293l5 5a1 1 0 01-1.414 1.414L10 5.414 5.707 9.707a1 1 0 01-1.414-1.414l5-5A1 1 0 0110 3z"
+                        clip-rule="evenodd" />
+                </svg>
+            </button>
+
+            <!-- Dropdown menu, show/hide based on dropdown state. -->
+            <div class="origin-top-right  absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 hidden z-50"
+                id="dropdown-menu" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
+                <div class="py-1" role="none">
+                    <!-- Dropdown items -->
+                    <a href="#"
+                        class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900 border-b-2 border-slate-100"
+                        role="menuitem">New customer? <span class="text-blue-500  gap-5">Sign Up</span></a>
+                    <a href="#" class="block px-4 py-2 text-md text-gray-700 hover:bg-gray-100 hover:text-gray-900"
+                        role="menuitem"><i class="fa-solid fa-circle-user text-md pr-1"></i> My Profile</a>
+                    <a href="#" class="block px-4 py-2 text-md text-gray-700 hover:bg-gray-100 hover:text-gray-900"
+                        role="menuitem"><i class="fa-solid fa-box text-md pr-1"></i> Order</a>
+                    <a href="#" class="block px-4 py-2 text-md text-gray-700 hover:bg-gray-100 hover:text-gray-900"
+                        role="menuitem"><i class="fa-solid fa-heart text-md pr-1"></i>Wishlist</a>
+                    <a href="#" class="block px-4 py-2 text-md text-gray-700 hover:bg-gray-100 hover:text-gray-900"
+                        role="menuitem"><i class="fa-solid fa-gift text-md pr-1"></i>Rewards</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- cart -->
+        <div class="md:flex gap-3 text-lg cursor-pointer hidden md:visible" onclick="toggleCartMenu()">
+            <div class="flex"><img src="./assets/image/image.png" class="w-8 h-8"><span
+                    class="self-start pt-0">(0)</span></div>
+            Cart
+        </div>
+        <!-- become a seller  -->
+        <div class="md:flex gap-1 text-md cursor-pointer hidden md:visible">
+            <i class="fa-solid fa-store text-lg p-1"></i>
+            Become a Seller?
+        </div>
+        <!-- dots  -->
+        <div class="md:inline-block gap-3 text-lg cursor-pointer self-end hidden md:visible">
+            <div class="block borderp-2 " id="dot">
+                <i class="fa-solid fa-ellipsis-vertical border-transparent hover:border-gray-300 hover:border-3 "></i>
+            </div>
+
+            <!-- Dropdown menu, show/hide based on dropdown state. -->
+            <div class="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 hidden"
+                id="dropdown-dot" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
+                <div class="py-1" role="none">
+                    <!-- Dropdown items -->
+                    <a href="#"
+                        class="block px-4 py-2 text-md text-gray-700 hover:bg-gray-100 hover:text-gray-900 border-b-2 border-slate-100"
+                        role="menuitem">Become a Seller?</a>
+                    <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
+                        role="menuitem"><i class="fa-solid fa-circle-info text-md pr-1"></i>Help</a>
+                    <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
+                        role="menuitem"><i class="fa-solid fa-arrow-down text-md pr-1"></i>Download App</a>
+
+                </div>
+            </div>
+
+        </div>
+        <!-- mobile navbar  -->
+        <div>
+            <div class="cursor-pointer md:hidden" id="nav_btn">
+                <i class="fa-solid fa-bars text-2xl"></i>
+            </div>
+            <ul id="nav_menu"
+                class="fixed w-full h-0 p-0 bg-white overflow-hidden  mx-1 top-[70px] left-0 right-0 flex  flex-col gap-2 transition-all duration-300 md:hidden  z-50 shadow-xl">
+                <li>
+                    <a href="#" class="block px-4 py-2 text-xl" role="menuitem"><i
+                            class="fa-solid fa-circle-user text-lg pr-1"></i> My Profile</a>
+                </li>
+                <li>
+                    <a href="#" class="block px-4 py-2 text-xl" role="menuitem"><i
+                            class="fa-solid fa-box text-lg pr-1"></i>MY Orders</a>
+                </li>
+                <li>
+                    <a href="#" class="block px-4 py-2 text-xl" role="menuitem"><i
+                            class="fa-solid fa-heart text-lg pr-1"></i> Wishlist</a>
+                </li>
+                <li>
+                    <a href="#" class="block px-4 py-2 text-xl" role="menuitem"><i
+                            class="fa-solid fa-store text-lg pr-1"></i>Become a seller?</a>
+                </li>
+                <li>
+                    <a href="#" class="block px-4 py-2 text-xl" role="menuitem"><i
+                            class="fa-solid fa-gift text-lg pr-1"></i>Rewards</a>
+                </li>
+                <li>
+                    <a href="#" class="block px-4 py-2 text-xl" role="menuitem"><i
+                            class="fa-solid fa-circle-info text-lg pr-1"></i> Help & Suport</a>
+                </li>
+                <li>
+                    <button class="bg-blue-700 text-white text-xl p-3 m-2 gap-3 rounded-lg">Login</button>
+                    <button class="bg-green-500 text-white text-xl p-3 m-2 gap-3 rounded-lg">Signup</button>
+                    <button class="md:flex p-3 m-2 gap-3 text-lg cursor-pointer " id='cart_btn_mobile'
+                        onclick="toggleCartMenu()">
+                        <img src="./assets/image/image.png" class="w-8 h-8"><span class="self-start pt-0">(0)
+                            Cart
+                    </button>
+                </li>
+            </ul>
+        </div>
+
+    </nav>
+    <!-- marquee  -->
+    <div class="relative isolate flex items-center gap-x-6 overflow-hidden bg-gray-50 px-6 py-2.5 sm:px-3.5 sm:before:flex-1"
+        id='banner'>
+        <div class="absolute left-[max(-7rem,calc(50%-52rem))] top-1/2 -z-10 -translate-y-1/2 transform-gpu blur-2xl"
+            aria-hidden="true">
+            <div class="aspect-[577/310] w-[36.0625rem] bg-gradient-to-r from-[#ff80b5] to-[#9089fc] opacity-30"
+                style="clip-path: polygon(74.8% 41.9%, 97.2% 73.2%, 100% 34.9%, 92.5% 0.4%, 87.5% 0%, 75% 28.6%, 58.5% 54.6%, 50.1% 56.8%, 46.9% 44%, 48.3% 17.4%, 24.7% 53.9%, 0% 27.9%, 11.9% 74.2%, 24.9% 54.1%, 68.6% 100%, 74.8% 41.9%)">
+            </div>
+        </div>
+        <div class="absolute left-[max(45rem,calc(50%+8rem))] top-1/2 -z-10 -translate-y-1/2 transform-gpu blur-2xl"
+            aria-hidden="true">
+            <div class="aspect-[577/310] w-[36.0625rem] bg-gradient-to-r from-[#ff80b5] to-[#9089fc] opacity-30"
+                style="clip-path: polygon(74.8% 41.9%, 97.2% 73.2%, 100% 34.9%, 92.5% 0.4%, 87.5% 0%, 75% 28.6%, 58.5% 54.6%, 50.1% 56.8%, 46.9% 44%, 48.3% 17.4%, 24.7% 53.9%, 0% 27.9%, 11.9% 74.2%, 24.9% 54.1%, 68.6% 100%, 74.8% 41.9%)">
+            </div>
+        </div>
+        <div class="flex flex-wrap items-center gap-x-4 gap-y-2">
+            <p class="text-sm leading-6 text-gray-900">
+                <strong class="font-semibold">EcommKart 8023-8824</strong><svg viewBox="0 0 2 2"
+                    class="mx-2 inline h-0.5 w-0.5 fill-current" aria-hidden="true">
+                    <circle cx="1" cy="1" r="1" />
+                </svg>Join us for get offers from  April 1 – 9 to see what's coming next.
+            </p>
+            <a href="#"
+                class="flex-none rounded-full bg-gray-900 px-3.5 py-1 text-sm font-semibold text-white shadow-sm hover:bg-gray-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-900">Register
+                now <span aria-hidden="true">&rarr;</span></a>
+        </div>
+        <div class="flex flex-1 justify-end">
+            <button type="button" class="-m-3 p-3 focus-visible:outline-offset-[-4px]" onclick="remove()">
+                <span class="sr-only">Dismiss</span>
+                <svg class="h-5 w-5 text-gray-900" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                    <path
+                        d="M6.28 5.22a.75.75 0 00-1.06 1.06L8.94 10l-3.72 3.72a.75.75 0 101.06 1.06L10 11.06l3.72 3.72a.75.75 0 101.06-1.06L11.06 10l3.72-3.72a.75.75 0 00-1.06-1.06L10 8.94 6.28 5.22z" />
+                </svg>
+            </button>
+        </div>
+    </div>
+
+    <div class="mx-1">
+        <!-- top navabar ends -->
+        <!-- items navbar start  -->
+                <div
+                    class="w-auto rounded-md h-28 bg-white flex mt-2 justify-evenly xl:mx-4 mx-3 items-center overflow-x-auto overflow-y-hidden p-3 gap-5 custom-scrollbar">
+                    <div class="mx-3 my-2 gap-2">
+                        <a href="#">
+                            <img src="./assets/image/mobile.png" alt="" class="xl:w-16 xl:h-20 w-12 h-16">
+                            <p>Mobiles</p>
+                        </a>
+                    </div>
+                    <div class="mx-3 my-2 gap-2">
+                        <a href="#" class="text-center">
+                            <img src="./assets/image/fashion1.png" alt="" class="xl:w-28 xl:h-20 w-24 h-16">
+                            <p>Fashion</p>
+                        </a>
+                    </div>
+                    <div class="mx-3 my-2 gap-2">
+                        <a href="#" class="text-center">
+                            <img src="./assets/image/electronic.png" alt="" class="xl:w-28 xl:h-20 w-24 h-16">
+                            <p>Electronics</p>
+                        </a>
+                    </div>
+                    <div class="mx-3 my-2 gap-2">
+                        <a href="#" class="text-center">
+                            <img src="./assets/image/home.png" alt="" class="xl:w-20 xl:h-20 w-16 h-16">
+                            <p>Home Decor</p>
+                        </a>
+                    </div>
+                    <div class="mx-3 my-2 gap-2">
+                        <a href="#" class="text-center">
+                            <img src="./assets/image/pngegg.png" alt="" class="xl:w-20 xl:h-20 w-16 h-16">
+                            <p>Appliances</p>
+                        </a>
+                    </div>
+                    <div class="mx-3 my-2 gap-2">
+                        <a href="#" class="text-center">
+                            <img src="./assets/image/beauty1.png" alt="" class="xl:w-20 xl:h-20 w-16 h-16">
+                            <p>Beauty</p>
+                        </a>
+                    </div>
+                    <div class="mx-3 my-2 gap-2">
+                        <a href="#" class="text-center">
+                            <img src="./assets/image/teedy.png" alt="" class="xl:w-20 xl:h-20 w-16 h-16">
+                            <p>Toys & Games</p>
+                        </a>
+                    </div>
+
+                </div>
+        <!-- items navbar end -->
+
+
+        <!--================================================ product section starts =========================================================== -->
+            <div class="mx-4 h-[280px] mt-7 ">
+                <div class="swiper mySwiper rounded-md">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide"> <img src="./assets/image/hero.webp"
+                                class="w-auto h-auto object-cover bg-no-repeat" /></div>
+                    </div>
+                </div>
+            </div>
+            <!-- group  -->
+            <div class="bg-white mt-7 mx-4 rounded-md">
+                <div class="mx-auto max-w-2xl py-4 sm:px-6 sm:py-4 lg:max-w-7xl lg:px-3">
+                    <h2 class=" flex justify-between text-2xl p-1 font-bold tracking-tight text-gray-900">Top Deals <p
+                            class="text-end cursor-pointer p-2"><i class="fa-solid fa-arrow-right fa-lg"></i></p>
+                    </h2>
+                    <div class="mt-1 px-3 grid grid-cols-1 gap-x-6 gap-y-2 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8"  id="prodcut-container">
+                    </div>
+                    
+                </div>
+            </div>
+            <!-- group end  -->
+        <!--================================================ product section ends =========================================================== -->
+    </div>
+ 
+        <!--==========================================footer=================================================  -->  
+        <div>
+                <!-- buttons -->
+            <div class="flex w-full h-20 justify-center items-start gap-8 mt-5">
+                <button
+                    class="bg-yellow-500 text-white transition-all duration-300 ease-linear hover:text-yellow-500   hover:bg-white border border-rasnparent rounded p-3  hover:border-yellow-500">Login</button>
+            </div>
+
+            <!-- Back to top button -->
+            <button id="backToTopBtn" onclick="backToTop()"
+                class="hidden fixed bottom-4 right-4 bg-blue-500 hover:bg-blue-600 text-white py-3 px-5 rounded-full shadow-lg transition duration-300 ease-in-out"><i
+                    class="fa-solid fa-arrow-up fa-md"></i>
+            </button>
+
+            <footer class="bg-gray-800 text-white py-2 pt-10">
+                <div class="container mx-auto flex flex-col md:flex-row items-center justify-between px-4">
+                    <!-- Left side of the footer -->
+                    <div class="mb-6 md:mb-0 md:mr-16 w-full md:w-auto">
+                        <h2 class="text-2xl font-semibold mb-2 bg-gradient-to-r from-blue-600 to-yellow-500 bg-clip-text text-transparent">Grabzy</h2>
+                        <p class="text-gray-400">Your one-stop destination for all your shopping needs. Discover amazing deals on electronics, fashion, home essentials, and more.</p>
+                    </div>
+
+                    <!-- Middle section of the footer (Navigation) -->
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-16 w-full md:w-auto mb-8 md:mb-0">
+                        <div>
+                            <h3 class="font-semibold mb-3 text-blue-400">Shop By Category</h3>
+                            <ul>
+                                <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">Electronics</a></li>
+                                <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">Fashion</a></li>
+                                <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">Home & Living</a></li>
+                                <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">Beauty</a></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold mb-3 text-blue-400">Customer Service</h3>
+                            <ul>
+                                <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">Help Center</a></li>
+                                <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">Returns</a></li>
+                                <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">Shipping Info</a></li>
+                                <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">Contact Us</a></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold mb-3 text-blue-400">About Grabzy</h3>
+                            <ul>
+                                <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">About Us</a></li>
+                                <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">Careers</a></li>
+                                <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">Press</a></li>
+                                <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">Sell on Grabzy</a></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold mb-3 text-blue-400">Legal</h3>
+                            <ul>
+                                <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">Privacy Policy</a></li>
+                                <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">Terms of Service</a></li>
+                                <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">Return Policy</a></li>
+                                <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">Security</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Right side of the footer -->
+                    <div class="w-full md:w-auto">
+                        <h3 class="font-semibold mb-3 text-blue-400">Connect With Us</h3>
+                        <div class="flex space-x-6 gap-2">
+                            <a href="#" class="text-gray-400 hover:text-blue-500 transition-colors duration-300 text-xl"><i class="fab fa-facebook"></i></a>
+                            <a href="#" class="text-gray-400 hover:text-blue-400 transition-colors duration-300 text-xl"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="text-gray-400 hover:text-pink-500 transition-colors duration-300 text-xl"><i class="fab fa-instagram"></i></a>
+                            <a href="#" class="text-gray-400 hover:text-blue-700 transition-colors duration-300 text-xl"><i class="fab fa-linkedin"></i></a>
+                        </div>
+                        <div class="mt-4">
+                            <h3 class="font-semibold mb-2 text-blue-400">Download Our App</h3>
+                            <div class="flex space-x-3 gap-2">
+                                <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300"><i class="fab fa-google-play text-xl"></i></a>
+                                <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300"><i class="fab fa-apple text-xl"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="border-t border-gray-600 w-full mt-8 pt-4 pb-2">
+                    <div class="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center">
+                        <p class="text-gray-400 text-sm">© 2024 Grabzy. All Rights Reserved.</p>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    <!-- =================================================footer end =================================================-->
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="./assets/js/main.js"></script>
+</body>
+</html>
